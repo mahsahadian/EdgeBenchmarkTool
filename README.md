@@ -63,6 +63,10 @@ client = InfluxDBClient('Influxdb IP', Influxdb port, 'telegraf', 'telegraf', 'D
 -Install influxdb
 -you can connect the Influxdb to Grafana for visualizaton or convert the measurements to csv file
 
+Note: after a set of experiments you have to reset the systems and dockers to remove the loads.
+-sudo docker-compose down
+-sudo service docker restart
+
 
 
 
