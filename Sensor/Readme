@@ -1,0 +1,1 @@
+The script read the data from the video, take picture every milisecond and send the photos as camera photo to the RaspberryPI.
