@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+    command: mosquitto -c /mosquitto-no-auth.conf
+  telegraf: 
+    image: telegraf
+    container_name: telegraf
+    restart: always
+    volumes:
+    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro  
