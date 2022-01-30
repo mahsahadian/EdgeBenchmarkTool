@@ -2,7 +2,8 @@
 Benchmarking tool for IoT environments
 
 IoTDB-benchmark is a tool for benchmarking the edge device. It is capable of monitoring the resources through different load.
-Measurements such as CPU, Memory, DiskI/O and Network
+Measurements such as CPU, Memory, DiskI/O and Network.
+Also, we take advantage of EMU-IoT-Gateway to generate the data from the Camera (simulating the real sensors).
 
 
 Main Features:
