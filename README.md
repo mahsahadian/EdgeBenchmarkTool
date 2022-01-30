@@ -1,9 +1,11 @@
 # IoTBenchmarkTool
 Benchmarking tool for IoT environments
 
-IoTDB-benchmark is a tool for benchmarking the edge device. It is capable of monitoring the resources through different load.
+EdgeBenchmark is a tool for benchmarking the edge device. It is capable of monitoring the resources through different load.
 Measurements such as CPU, Memory, DiskI/O and Network.
 Also, we take advantage of EMU-IoT-Gateway to generate the data from the Camera (simulating the real sensors).
+
+The motivation is to create a tool to monitor the Raspberrypi in terms of performance metrics.
 
 
 Main Features:
@@ -18,8 +20,8 @@ We recommend using Linux or Raspbian systems.
 Prerequisites of IoTBenchmarkTool
 To use the tool, you need to have:
 
-Linux 20
-Raspberry PI 4
+-Linux 20
+-Raspberry PI 4
 
 Installation requirements on Rpi:
 
