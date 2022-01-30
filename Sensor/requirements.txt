@@ -3,7 +3,5 @@ redis
 opencv-contrib-python-headless
 pytz
 pymongo
-#kafka-python
-#confluent-kafka
 paho-mqtt
 influxdb
