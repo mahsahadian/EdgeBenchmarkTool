@@ -28,36 +28,37 @@ Installation requirements on Rpi:
 -Docker
 -Docker-compose
 
-Instruction:
-1.Sensor side:
+##Instruction:
+###Sensor side:
 Running the docker-compose file on the Sensor side to send the camera data to the Raspberry Pi.
 
 `sudo docker-compose up`
 
 
-If you want to scale the number of cameras to try different load use:
--sudo docker-compose up --scale app=2
-If you want to scale more than 200 sensors add this:
-sudo COMPOSE_HTTP_TIMEOUT=3000 docker-compose up --scale app=200
+If you want to scale up to [n] number of cameras to try different load use:
 
+`sudo docker-compose up --scale app=[n]`
 
-2. Edge side:
+If n>200 add timeout option as follows:
+
+`sudo COMPOSE_HTTP_TIMEOUT=[optional] docker-compose up --scale app=[n]`
+
+### Edge side:
 2.1: Instalation Requirements:
 -Install python
 -Install docker 
--Install the Mosquitto in the container 
--Install the Telegraf in the container 
-change the telegraf.conf:
+change the telegraf.conf file as follows:
 # Configuration for sending metrics to InfluxDB
 urls = ["IP of the Influxdb VM:Port"] --recommend 8086
 database = "DBname"
 skip_database_creation = true
-## HTTP Basic Auth
+# HTTP Basic Auth
   username = "telegraf"
   password = "telegraf"
 
 2.2:Run docker-compose.yml file
--sudo docker-compose up
+
+`sudo docker-compose up`
 
 2.3:Monitoring
  -Change monitoring.py based on what you the changes on telegraf.conf
@@ -70,8 +71,8 @@ client = InfluxDBClient('Influxdb IP', Influxdb port, 'telegraf', 'telegraf', 'D
 -you can connect the Influxdb to Grafana for visualizaton or convert the measurements to csv file
 
 Note: after a set of experiments you have to reset the systems and dockers to remove the loads.
--sudo docker-compose down
--sudo service docker restart
+`sudo docker-compose down`
+`sudo service docker restart`
 
 
 
