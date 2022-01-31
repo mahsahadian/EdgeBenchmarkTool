@@ -3,13 +3,13 @@ Benchmarking tool for IoT environments
 
 EdgeBenchmark is a tool for benchmarking the edge device. It is capable of monitoring the resources through different load.
 Measurements such as CPU, Memory, DiskI/O and Network.
-Also, we take advantage of EMU-IoT-Gateway to generate the data from the Camera (simulating the real sensors).
+Also, We follow the similar steps as EMU-IoT-Gateway to generate the photos simulating camera sensors(simulating the real sensors).
 
 The motivation is to create a tool to monitor the Raspberrypi in terms of performance metrics.
 
 
 Main Features:
--Easy to use: IoTDB-benchmark is a tool combined multiple testing functions so users 
+-Easy to use: Edgebenchmark is a tool combined multiple testing functions so users 
 do not need to switch different tools.
 -Testing report and result: Supporting storing testing information and results
 for further query or analysis.
@@ -17,7 +17,7 @@ Visualize results: Integration with Grafana to visualize the results.
 
 We recommend using Linux or Raspbian systems.
 
-Prerequisites of IoTBenchmarkTool
+Prerequisites of EdgeBenchmarkTool
 To use the tool, you need to have:
 
 -Linux 20
@@ -29,9 +29,10 @@ Installation requirements on Rpi:
 -Docker-compose
 
 Instruction:
-1.VM side:
-Running the docker-compose file on the VM side to send the camera data to the Raspberry Pi.
-- sudo docker-compose up
+1.Sensor side:
+Running the docker-compose file on the Sensor side to send the camera data to the Raspberry Pi.
+\python
+'sudo docker-compose up'
 If you want to scale the number of cameras to try different load use:
 -sudo docker-compose up --scale app=2
 If you want to scale more than 200 sensors add this:
