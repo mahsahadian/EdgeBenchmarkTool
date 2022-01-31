@@ -31,8 +31,10 @@ Installation requirements on Rpi:
 Instruction:
 1.Sensor side:
 Running the docker-compose file on the Sensor side to send the camera data to the Raspberry Pi.
-\python
-'sudo docker-compose up'
+
+`sudo docker-compose up`
+
+
 If you want to scale the number of cameras to try different load use:
 -sudo docker-compose up --scale app=2
 If you want to scale more than 200 sensors add this:
