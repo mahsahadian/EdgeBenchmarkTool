@@ -5,3 +5,4 @@ pytz
 pymongo
 paho-mqtt
 influxdb
+dotenv

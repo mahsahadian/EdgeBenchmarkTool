@@ -10,7 +10,9 @@ services:
     command: mosquitto -c /mosquitto-no-auth.conf
   telegraf: 
     image: telegraf
+    env_file:
+      - edge-variables.env
     container_name: telegraf
     restart: always
     volumes:
-    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro  
+    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
