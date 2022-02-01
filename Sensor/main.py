@@ -18,7 +18,9 @@ from typing import NamedTuple
 import json
 
 
-import os
+from dotenv import load_dotenv
+
+load_dotenv("sensor-variables.env")
 
 
 log = logging.getLogger()
@@ -169,7 +171,7 @@ class Camera():
 
                 client.on_connect = on_connect
                 client.on_message = on_message
-                client.connect("132.207.170.59", 1883, 60)
+                client.connect(os.getenv('MQTT_SERVER_IP'), os.getenv('MQTT_SERVER_PORT'), 60)
                 client.subscribe("topic", qos=1)
 
                 client.publish(topic="topic", payload=str(image_base64), qos=1, retain=False)
@@ -193,15 +195,15 @@ class Camera():
             str = base64.b64encode(imageFile.read())
         return str
 
-camera_id = 123# sys.argv[1]  # 123
-destination_cluster_ip = '132.207.170.59' #sys.argv[2]  # '132.207.170.59'
-JPGQuality = 50 #int(sys.argv[3] ) # 20
-transmitdelay = 10 # int(sys.argv[4])  # 10
+camera_id = os.getenv('CAMERA_ID') # sys.argv[1]  # 123
+destination_cluster_ip = os.getenv('DESTINATION_CLUSTER_IP') #sys.argv[2]  # '132.207.170.59'
+JPGQuality = os.getenv('JPGQUALITY')#int(sys.argv[3] ) # 20
+transmitdelay = os.getenv('TRANSMITDELAY') # int(sys.argv[4])  # 10
 
 check_looping = 0
 
-INFLUXDB_DATABASE = 'sensorslog'
-influx_client = InfluxDBClient('132.207.170.25', 8086, database='sensorslog')
+INFLUXDB_DATABASE = os.getenv('INFLUXDB_DATABASE_NAME')
+influx_client = InfluxDBClient(os.getenv('INFLUXDB_DATABASE_IP'), os.getenv('INFLUXDB_DATABASE_PORT'), database=INFLUXDB_DATABASE)
 _init_influxdb_database()
 
 
