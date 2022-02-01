@@ -14,11 +14,12 @@ import requests
 
 
 load_dotenv()
+load_dotenv("edge-variables.env")
 
 
 from influxdb import InfluxDBClient
 
-client = InfluxDBClient('132.207.170.25', 8086, 'telegraf', 'telegraf', 'sensors')
+client = InfluxDBClient(os.getenv('INFLUXDB_IP'), os.getenv('INFLUXDB_PORT'), os.getenv('TARGET_DATABASE_USERNAME'), os.getenv('TARGET_DATABASE_PASSWORD'), os.getenv('TARGET_DATABASE_NAME'))
 
 #client.create_database(dbname)
 
